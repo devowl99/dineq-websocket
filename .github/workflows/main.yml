@@ -65,5 +65,5 @@ jobs:
             echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u "${{ secrets.GHCR_USERNAME }}" --password-stdin
             cd /home/sunyeop/dineq
             docker compose pull
-            docker compose up -d --remove-orphans
+            docker compose up -d
             docker image prune -f
