@@ -25,6 +25,7 @@ public class QRController {
      */
     @GetMapping("/QR/{tableId}")
     public String pictureQR(@PathVariable String tableId) {
+        System.out.println("들어옴!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         return "redirect:/QR.html?tableId=" + tableId;
     }
 
@@ -42,11 +43,11 @@ public class QRController {
 
         if(!flag) {
             // redirectURl = "/QR-fail.html?tableId=" + tableId;
-            redirectURl= "https://dine-q-fe.vercel.app/order/expiration";
+            redirectURl= "https://shipleaf.duckdns.org/order/expiration";
 
         }else{
             String randomToken= qrService.registerQR(tableId);
-            redirectURl="https://dine-q-fe.vercel.app/order?tableId="+tableId+"&token="+randomToken;
+            redirectURl="https://shipleaf.duckdns.org/order?tableId="+tableId+"&token="+randomToken;
         }
 
         HttpHeaders headers = new HttpHeaders();
